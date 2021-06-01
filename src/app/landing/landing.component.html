@@ -1,0 +1,68 @@
+<div class="card">
+    <h4>Seleziona una delle opzioni</h4>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h6>Genera un Quiz di prova.</h6>
+            <form class="form" [formGroup]="formA">
+                <div class="form-group" *ngIf="listQuiz; else spinner">
+                    <label>Seleziona un concorso</label>
+                    <select formControlName="quizA" id="quizA">
+                        <option *ngFor="let q of listQuiz; let i = index" [value]="q.codingValue">
+                            {{q.nameQuiz}}
+                        </option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info" [disabled]="formA.invalid">Vedi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h6>Visualizza le domande con le risposte corrette.</h6>
+            <form class="form" [formGroup]="formB">
+                <div class="form-group" *ngIf="listQuiz; else spinner">
+                    <label>Seleziona un concorso</label>
+                    <select formControlName="quizB" id="quizB">
+                        <option *ngFor="let q of listQuiz; let i = index" [value]="listQuiz[i].codingValue">
+                            {{listQuiz[i].nameQuiz}}
+                        </option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info" [disabled]="formB.invalid">Vedi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div clasS="col-sm-8">
+            <h6>Genera un file PDF con domande e risposte.</h6>
+            <form class="form" [formGroup]="formC">
+                <div class="form-group" *ngIf="listQuiz; else spinner">
+                    <label>Seleziona un concorso</label>
+                    <select formControlName="quizC" id="quizC">
+                        <option *ngFor="let q of listQuiz; let i = index" [value]="q.codingValue">
+                            {{q.nameQuiz}}
+                        </option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info" [disabled]="formC.invalid">Vedi</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <ng-template #spinner>
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    </ng-template>
+</div>
