@@ -4,7 +4,7 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
             <h6>Genera un Quiz di prova.</h6>
-            <form class="form" [formGroup]="formA">
+            <form class="form" [formGroup]="formA" (submit)="goToQuiz()">
                 <div class="form-group" *ngIf="listQuiz; else spinner">
                     <label>Seleziona un concorso</label>
                     <select formControlName="quizA" id="quizA">
@@ -24,7 +24,7 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
             <h6>Visualizza le domande con le risposte corrette.</h6>
-            <form class="form" [formGroup]="formB">
+            <form class="form" [formGroup]="formB" (submit)="goToOkList()">
                 <div class="form-group" *ngIf="listQuiz; else spinner">
                     <label>Seleziona un concorso</label>
                     <select formControlName="quizB" id="quizB">
@@ -44,7 +44,7 @@
         <div class="col-sm-2"></div>
         <div clasS="col-sm-8">
             <h6>Genera un file PDF con domande e risposte.</h6>
-            <form class="form" [formGroup]="formC">
+            <form class="form" [formGroup]="formC" (submit)="goToPdfCreator()">
                 <div class="form-group" *ngIf="listQuiz; else spinner">
                     <label>Seleziona un concorso</label>
                     <select formControlName="quizC" id="quizC">

@@ -17,4 +17,8 @@ export class DateManagerService {
   getInfobyId(id: string) {
       return this.http.get(environment.api_url + '/info/infobyId/' + id);
   }
+
+  getListQuizIsOkOnly(id: string) {
+    return null;
+  }
 }

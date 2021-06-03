@@ -5,4 +5,5 @@ export interface QuizInfo {
     columnOK: string;
     numResponse: string;
     codingValue: string;
+    numQuizAtTime: string;
 }

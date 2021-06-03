@@ -10,7 +10,9 @@ const routes: Routes = [
   {path:'quiz', component: QuiztestComponent},
   {path:'quiz/:idQuiz', component: QuiztestComponent},
   {path:'isOkOnly', component: OnlyOKComponent},
-  {path:'pdf', component:PdfMakeComponent}
+  {path:'isOkOnly/:idQuiz', component: OnlyOKComponent},
+  {path:'pdf', component:PdfMakeComponent},
+  {path:'pdf/:idQuiz', component:PdfMakeComponent}
 ];
 
 @NgModule({
