@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, isDevMode, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -24,6 +24,7 @@ export class OnlyOKComponent implements OnInit {
       this.formB = this.formBuilder.group({
         quizB: ['',Validators.required]
       });
+      this.formConfirm = this.formBuilder.group({});
      }
 
   ngOnInit(): void {
@@ -38,7 +39,7 @@ export class OnlyOKComponent implements OnInit {
     this.quizService.getInfobyId(this.idQuiz).subscribe(
       data => {
           this.currentQuiz = data;
-          console.log(data);
+          if (isDevMode) console.log(data);
       },
       error => {
         console.log(error);
@@ -58,7 +59,7 @@ export class OnlyOKComponent implements OnInit {
      this.quizService.getListQuiz().subscribe(
       (data) => {
         this.listQuiz = data;
-        console.log(data);
+       if(isDevMode) console.log(data);
       },
       error => {
         console.log(error);

@@ -2,6 +2,34 @@
     <div class="card-head">
         <h5>Quiz - Generazione File PDF</h5>
     </div>
-    <div class="card-body"></div>
-    
+    <div class="card-body">
+        <div *ngIf="!currentQuiz">  <form class="form" [formGroup]="formC" (submit)="goToPdfCreator()">
+            <div class="form-group" *ngIf="listQuiz; else spinner">
+                <label>Seleziona un concorso</label>
+                <select formControlName="quizC" id="quizC">
+                    <option *ngFor="let q of listQuiz; let i = index" [value]="q.codingValue">
+                        {{q.nameQuiz}}
+                    </option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info" [disabled]="formC.invalid">Vedi</button>
+            </div>
+        </form></div>
+        <div *ngIf="currentQuiz">
+            <form [formGroup]="formConfirm" (submit)="requestList()">
+
+                <div class="form-group"><label>Quiz Selezionato: {{currentQuiz.nameQuiz}}</label></div>
+                <div class="form-group"><label>Numero di Test previsti nella simulazione: {{currentQuiz.numQuizAtTime}}</label></div>
+                <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz.numTest}}</label></div>
+                <div class="form-group"><button class="btn btn-primary">Mostra Quiz</button>
+                <button class="btn btn-secondary" (click)="newSearch()">Nuova Selezione</button></div>
+            </form>
+
+        </div>
+    </div>
+    <ng-template #spinner>
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    </ng-template>
 </div>
