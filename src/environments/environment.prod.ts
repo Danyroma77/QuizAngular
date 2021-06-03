@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: 'https://quizzonerest.herokuapp.com'
+  api_url: '$BACKEND_URL'
 };
