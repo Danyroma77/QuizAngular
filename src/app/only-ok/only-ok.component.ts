@@ -46,7 +46,12 @@ export class OnlyOKComponent implements OnInit {
     );
   }
 
-  requestList() {}
+  requestList() {
+    this.quizService.getListQuizIsOkOnly(this.idQuiz).subscribe(
+      data => {this.quizElaboration = data;},
+      error => {console.log(error)}
+    );
+  }
 
   newSearch() {
     this.currentQuiz = null;
