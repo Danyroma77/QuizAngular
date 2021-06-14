@@ -1,0 +1,47 @@
+<div class="container">
+    <db-header></db-header>
+    <div>
+        <h5>Risultati della Prova</h5>
+        <div class="card">
+            <div class="form-group"><label>Quiz Selezionato: <b>{{currentQuiz?.nameQuiz}}</b></label></div>
+            <div class="form-group"><label>Numero di Test previsti nella simulazione:
+                    {{currentQuiz?.numQuizAtTime}}</label></div>
+            <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz?.numResponse}}</label></div>
+        </div>
+
+        <div class="card">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Totale</td>
+                        <td>Risposte Corrette</td>
+                        <td>Risposte Errate</td>
+                        <td>Risposte non date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>{{total}}</td>
+                        <td>{{isOK}}</td>
+                        <td>{{isError}}</td>
+                        <td>{{noAnswer}}</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>--</td>
+                        <td>{{isOK / total | percent}}</td>
+                        <td>{{isError / total | percent }}</td>
+                        <td>{{noAnswer / total | percent }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-outline-dark"
+                (click)="activeModal.close('Close click')">Chiudi</button>
+        </div>
+    </div>
+</div>

@@ -40,12 +40,12 @@ export class PdfMakeComponent implements OnInit {
   getInfoQuiz(){
     this.quizService.getInfobyId(this.idQuiz).subscribe(
       data => {
-          this.currentQuiz = data;
-          if (isDevMode) console.log(data);
-      },
-      error => {
-        console.log(error);
-      }
+        this.currentQuiz = data;
+        if (isDevMode) console.log(data);
+    },
+    error => {
+      console.log(error);
+    }
     );
   }
   newSearch() {
@@ -60,9 +60,16 @@ export class PdfMakeComponent implements OnInit {
       });
   }
   requestList() {
-    this.quizService.getListQuizIsOkOnly(this.idQuiz).subscribe(
-      data => {this.quizElaboration = data;},
-      error => {console.log(error)}
+    this.quizService.getPdf(this.idQuiz).subscribe(
+      data => {
+        let blob = data;
+        var fileURL = URL.createObjectURL(blob);
+        window.open(fileURL)
+      
+      },
+        error => {
+          console.log(error);
+        }
     );
   }
 }

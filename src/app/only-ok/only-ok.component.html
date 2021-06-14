@@ -23,15 +23,35 @@
         <div class="textInfo" *ngIf="currentQuiz">
             <form [formGroup]="formConfirm" (submit)="requestList()">
 
-                <div class="form-group"><label>Quiz Selezionato: {{currentQuiz.nameQuiz}}</label></div>
-                <div class="form-group"><label>Numero di Test previsti nella simulazione: {{currentQuiz.numQuizAtTime}}</label></div>
-                <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz.numTest}}</label></div>
-                <div class="form-group"><button class="btn btn-primary">Mostra Quiz</button>
-                <button class="btn btn-secondary" (click)="newSearch()">Nuova Selezione</button></div>
+                <div class="form-group"><label>Quiz Selezionato: <b>{{currentQuiz.nameQuiz}}</b></label></div>
+                <div class="form-group"><label>Numero di Test previsti nella simulazione:
+                        {{currentQuiz.numQuizAtTime}}</label></div>
+                <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz.numResponse}}</label></div>
+                <div class="form-group text-center"><button class="btn btn-primary">Mostra Quiz</button>
+                    <button class="btn btn-secondary" (click)="newSearch()">Nuova Selezione</button>
+                </div>
             </form>
+            <i>L'elaborazione della lista può prendere alcuni minuti, e dipende dal numero dei Quiz presenti nel concorso.</i>
         </div>
         <div *ngIf="quizElaboration">
             <h6>Elenco Domande - Risposte (solo quelle corrette)</h6>
+            <table class="table" *ngIf="quizElaboration; else spinner">
+                <thead class="thead-dark">
+                    <tr>
+                        <td>#ID</td>
+                        <td>Domanda</td>
+                        <td>Risposta Corretta</td>
+                    </tr>
+                </thead>
+                <tr 
+                 *ngFor="let qe of quizElaboration; let i=index">
+                    <td>{{i+1}}</td>
+                    <td color="green">
+                        <div [innerHTMl]="qe.questionText"></div></td>
+                    <td color="blue">
+                        <div [innerHTML]="qe.solutionText"></div></td>
+                </tr>
+            </table>
         </div>
     </div>
     <ng-template #spinner>

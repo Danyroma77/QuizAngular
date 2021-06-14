@@ -24,15 +24,45 @@
         <div class="textInfo" *ngIf="currentQuiz">
             <form [formGroup]="formConfirm" (submit)="requestList()">
 
-                <div class="form-group"><label>Quiz Selezionato: {{currentQuiz.nameQuiz}}</label></div>
-                <div class="form-group"><label>Numero di Test previsti nella simulazione: {{currentQuiz.numQuizAtTime}}</label></div>
-                <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz.numTest}}</label></div>
-                <div class="form-group"><button class="btn btn-primary">Mostra Quiz</button>
-                <button class="btn btn-secondary" (click)="newSearch()">Nuova Selezione</button></div>
+                <div class="form-group"><label>Quiz Selezionato: <b>{{currentQuiz.nameQuiz}}</b></label></div>
+                <div class="form-group"><label>Numero di Test previsti nella simulazione:
+                        {{currentQuiz.numQuizAtTime}}</label></div>
+                <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz.numResponse}}</label></div>
+                <div class="form-group text-center"><button class="btn btn-primary">Avvia Prova</button>
+                    <button class="btn btn-secondary" (click)="newSearch()">Seleziona Nuovo Concorso</button>
+                </div>
             </form>
         </div>
-        <div *ngIf="quizElaboration">
-            <h6>Elenco Domande - Risposte (solo quelle corrette)</h6>
+        <div *ngIf="idQuiz">
+            <h6>Elenco Domande - Risposte</h6>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>#ID</td>
+                        <td>Domanda</td>
+                        <td>Risposte</td>
+                    </tr>
+                </thead>
+                <tbody *ngIf="quizElaboration; else spinner">
+                    <tr *ngFor="let element of quizElaboration; let i=index">
+                        <td>{{i+1}}</td>
+                        <td><div [innerHTML]="element.questionText"></div></td>
+                        <td>
+                            <div *ngFor="let q of element.objSol">
+                                <button 
+                                [ngClass]="(idList.indexOf(q.idsol) > -1)?'btn btn-primary':'btn btn-light'"
+                                 (click)="responseQuestion(q)" id="q.idsol" >
+                                    <i class="fa fa-check"></i>
+                                </button><div [innerHTML]="q.textsolution"></div><hr>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <div class="text-center">
+                <button class="btn btn-success" [disabled]="!quizElaboration" (click)="checkResult()">Concludi Prova</button>
+            </div>
         </div>
     </div>
     <ng-template #spinner>

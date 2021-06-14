@@ -14,6 +14,7 @@ import { OnlyOKComponent } from './only-ok/only-ok.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuiztestComponent } from './quiztest/quiztest.component';
 import { PdfMakeComponent } from './pdf-make/pdf-make.component';
+import { ResultModalComponent } from './result-modal/result-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PdfMakeComponent } from './pdf-make/pdf-make.component';
     InfoAPPComponent,
     OnlyOKComponent,
     QuiztestComponent,
-    PdfMakeComponent
+    PdfMakeComponent,
+    ResultModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,ReactiveFormsModule,

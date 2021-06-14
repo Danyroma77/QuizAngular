@@ -17,16 +17,16 @@
                 <button class="btn btn-info" [disabled]="formC.invalid">Vedi</button>
             </div>
         </form></div>
-        <div *ngIf="currentQuiz">
+        <div class="textInfo" *ngIf="currentQuiz">
             <form [formGroup]="formConfirm" (submit)="requestList()">
 
-                <div class="form-group"><label>Quiz Selezionato: {{currentQuiz.nameQuiz}}</label></div>
-                <div class="form-group"><label>Numero di Test previsti nella simulazione: {{currentQuiz.numQuizAtTime}}</label></div>
-                <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz.numTest}}</label></div>
-                <div class="form-group"><button class="btn btn-primary">Mostra Quiz</button>
+                <div class="form-group"><label>Quiz Selezionato: <b>{{currentQuiz.nameQuiz}}</b></label></div>
+                <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz.numResponse    }}</label></div>
+                <div class="form-group text-center"><button class="btn btn-primary">Genera PDF</button>
                 <button class="btn btn-secondary" (click)="newSearch()">Nuova Selezione</button></div>
             </form>
-
+            <i>Verifica le impostazioni del tuo browser per consentire l'apertura dei popup dal sito.<br>
+            Attualmente non è possibile generare PDF con immagini nella domanda e nella risposta.</i>
         </div>
     </div>
     <ng-template #spinner>

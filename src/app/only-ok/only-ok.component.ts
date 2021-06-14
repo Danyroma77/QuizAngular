@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { DateManagerService } from '../date-manager.service';
+import { QuestionSolutionOK } from '../models/qa';
 
 @Component({
   selector: 'db-only-ok',
@@ -11,7 +12,7 @@ import { DateManagerService } from '../date-manager.service';
 })
 export class OnlyOKComponent implements OnInit {
   currentQuiz = null;
-  quizElaboration = null;
+  quizElaboration: QuestionSolutionOK[]  ;
   idQuiz: string;
 
   formB: FormGroup;
@@ -49,7 +50,8 @@ export class OnlyOKComponent implements OnInit {
 
   requestList() {
     this.quizService.getListQuizIsOkOnly(this.idQuiz).subscribe(
-      data => {this.quizElaboration = data;},
+      data => {this.quizElaboration = data;
+      console.log(data);},
       error => {console.log(error)}
     );
   }
