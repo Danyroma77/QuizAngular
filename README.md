@@ -1,27 +1,32 @@
-# Quiz
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
+# Project Title
 
-## Development server
+Quiz APP - l'app web consente di generare un esempio di quiz per i concorsi inseriti.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Seleziona un quiz e prova.
+E' possibile mostrare solamente domande e risposte corrette per poter studiare solo quelle corrette.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Vuoi aggiungere nuovi concorsi ? Scrivimi una email a danielerm77@gmail.com 
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authors
 
-## Running end-to-end tests
+- [@Danyroma77](https://www.github.com/Danyroma77)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  
+## Screenshots
 
-## Further help
+![App Screenshot](https://firebasestorage.googleapis.com/v0/b/portfolio-f057f.appspot.com/o/quiz_app%2Fquizprova.jpeg?alt=media&token=ae43e21d-50c1-447d-96cc-625cb2732abb)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![](https://firebasestorage.googleapis.com/v0/b/portfolio-f057f.appspot.com/o/quiz_app%2Fresult1.jpeg?alt=media&token=4b495021-2073-4f90-a021-f400a4ab2497)
+
+![](https://firebasestorage.googleapis.com/v0/b/portfolio-f057f.appspot.com/o/quiz_app%2Fresult2.jpeg?alt=media&token=fa42cb76-65ca-4b53-9eb0-f3894ba4ecab)
+  
+## Demo
+
+https://concorsiquiz.vercel.app/
+
+  
