@@ -15,7 +15,7 @@ export class DateManagerService {
   constructor(private http: HttpClient) { }
 
   getListQuiz(): Observable<any> {
-    console.log("ENV " + env.BACKEND_URL);
+    console.log("ENV " + env.$BACKEND_URL);
     console.log("VAR ANGULAR " + environment.api_url.toString());
 
       return this.http.get(environment.api_url +'/info/infolist');
