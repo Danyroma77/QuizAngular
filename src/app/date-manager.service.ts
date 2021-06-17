@@ -6,6 +6,7 @@ import { QuestionSolutionOK } from './models/qa';
 import { QuestionAndSolution } from './models/qs';
 import { env } from 'process';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,9 +15,11 @@ export class DateManagerService {
   constructor(private http: HttpClient) { }
 
   getListQuiz(): Observable<any> {
-    console.log("ENV " + env.$BACKEND_URL);
-    console.log("VAR ANGULAR " + environment.api_url);
-
+    let linkAPI : string;
+    if (environment.production)
+    {linkAPI = env.$BACKEND_URL}
+    else{linkAPI = environment.api_url}
+    console.log("my server " + linkAPI);
       return this.http.get(environment.api_url +'/info/infolist');
   }
   getInfobyId(id: string) {
