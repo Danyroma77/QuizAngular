@@ -25,6 +25,9 @@ export class DateManagerService {
     return this.http.get<QuestionSolutionOK[]>(environment.api_url + '/qa/isokonly/' + id);
   }
 
+  getPagination(id: string, page: number) {
+    return this.http.get<QuestionSolutionOK[]>(environment.api_url + '/qa/v2/quiz/' + id + '/' + page);
+  }
   getPdf(id: string) {
     const httpOptions = {
       responseType: 'blob' as 'json',

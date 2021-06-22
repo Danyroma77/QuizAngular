@@ -93,10 +93,7 @@ export class QuiztestComponent implements OnInit {
         this.idList.push(solution.idsol);
         this.mySolution[idmodify].idAnswerSelected = solution.idsol;
         this.mySolution[idmodify].isCorrect = solution.isCorrect;
-        /*
-        console.log("lista degli id delle soluzioni => " + this.idList);
-        console.log("lista degli id delle domande => " + this.idQuestion);
-        console.log("ARRAY COMPLETO => " + this.mySolution);*/
+        
       }
       else {
         this.idList.splice(idsol, 1);

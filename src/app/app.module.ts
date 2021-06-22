@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuiztestComponent } from './quiztest/quiztest.component';
 import { PdfMakeComponent } from './pdf-make/pdf-make.component';
 import { ResultModalComponent } from './result-modal/result-modal.component';
+import { IsOKV2Component } from './is-okv2/is-okv2.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ResultModalComponent } from './result-modal/result-modal.component';
     OnlyOKComponent,
     QuiztestComponent,
     PdfMakeComponent,
-    ResultModalComponent
+    ResultModalComponent,
+    IsOKV2Component
   ],
   imports: [
     BrowserModule, HttpClientModule,ReactiveFormsModule,

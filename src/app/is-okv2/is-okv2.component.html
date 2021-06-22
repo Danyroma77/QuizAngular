@@ -1,0 +1,77 @@
+<div class="card">
+    <div class="card-head">
+        <h5>Quiz - Domande e Risposte Corrette</h5>
+    </div>
+    <div class="card-body">
+        <div *ngIf="!currentQuiz">
+            <form class="form" [formGroup]="formB" (submit)="goToOkList()">
+                <div class="form-group" *ngIf="listQuiz; else spinner">
+                    <label>Seleziona un concorso</label>
+                    <select formControlName="quizB" id="quizB">
+                        <option *ngFor="let q of listQuiz; let i = index" [value]="listQuiz[i].codingValue">
+                            {{listQuiz[i].nameQuiz}}
+                        </option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info" [disabled]="formB.invalid">Vedi</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="textInfo" *ngIf="currentQuiz">
+            <form [formGroup]="formConfirm" (submit)="requestList()">
+
+                <div class="form-group"><label>Quiz Selezionato: <b>{{currentQuiz.nameQuiz}}</b></label></div>
+                <div class="form-group"><label>Numero di Test previsti nella simulazione:
+                        {{currentQuiz.numQuizAtTime}}</label></div>
+                <div class="form-group"><label>Numero di Test in archivio: {{currentQuiz.numTest}}</label></div>
+                <div class="form-group text-center"><button class="btn btn-primary">Mostra Quiz</button>
+                    <button class="btn btn-secondary" (click)="newSearch()">Nuova Selezione</button>
+                </div>
+            </form>
+            <i>L'elaborazione della lista può prendere alcuni minuti, e dipende dal numero dei Quiz presenti nel
+                concorso.</i>
+        </div>
+        <div *ngIf="quizElaboration; else spinner">
+            <h6>Elenco Domande - Risposte (solo quelle corrette)</h6>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <td>#ID</td>
+                        <td>Domanda</td>
+                        <td>Risposta Corretta</td>
+                    </tr>
+                </thead>
+                <tbody *ngIf="quizElaboration; else spinner">
+                    <tr>
+                        <td colspan="3" class="text-cente">
+                            <button class="btn btn-outline-info" (click)="movePage('first')">FIRST</button>
+                            <button class="btn btn-outline-info" (click)="movePage('pre')">PRE</button>
+                            {{page}} di {{totalPage}}
+                            <button class="btn btn-outline-info" (click)="movePage('post')">POST</button>
+                            <button class="btn btn-outline-info" (click)="movePage('last')">LAST</button>
+                            Vai a Pagina :
+                            <input type="text" inputmode="numeric" id="selectpage" name="selectpage" #selectpage
+                                pattern="[0-9]*" (input)="formatInput($any($event).target)">
+                            <button class="btn btn-outline-info" (click)="goToPage(selectpage.value)">VAI</button>
+                        </td>
+                    </tr>
+                    <tr *ngFor="let qe of quizElaboration; let i=index">
+                        <td>{{i+1}}</td>
+                        <td color="green">
+                            <div [innerHTML]="qe.questionText"></div>
+                        </td>
+                        <td color="blue">
+                            <div [innerHTML]="qe.solutionText"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <ng-template #spinner>
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    </ng-template>
+</div>
