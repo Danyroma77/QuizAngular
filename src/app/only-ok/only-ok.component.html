@@ -47,7 +47,7 @@
                  *ngFor="let qe of quizElaboration; let i=index">
                     <td>{{i+1}}</td>
                     <td color="green">
-                        <div [innerHTMl]="qe.questionText"></div></td>
+                        <div [innerHTML]="qe.questionText"></div></td>
                     <td color="blue">
                         <div [innerHTML]="qe.solutionText"></div></td>
                 </tr>

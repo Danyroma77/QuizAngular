@@ -15,12 +15,7 @@ export class DateManagerService {
   constructor(private http: HttpClient) { }
 
   getListQuiz(): Observable<any> {
-    let linkAPI : string;
-    if (environment.production)
-    {linkAPI = env.$BACKEND_URL}
-    else{linkAPI = environment.api_url}
-    console.log("my server " + linkAPI);
-      return this.http.get(environment.api_url +'/info/infolist');
+     return this.http.get(environment.api_url +'/info/infolist');
   }
   getInfobyId(id: string) {
       return this.http.get(environment.api_url + '/info/infobyId/' + id);
