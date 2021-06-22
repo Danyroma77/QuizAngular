@@ -58,6 +58,7 @@ export class OnlyOKComponent implements OnInit {
 
   newSearch() {
     this.currentQuiz = null;
+    this.quizElaboration = null;
      this.quizService.getListQuiz().subscribe(
       (data) => {
         this.listQuiz = data;
