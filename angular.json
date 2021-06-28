@@ -59,6 +59,8 @@
                   "maximumError": "10kb"
                 }
               ]
+            } ,  "es5": {
+              "tsConfig": "./tsconfig-es5.app.json"
             }
           }
         },
@@ -70,6 +72,9 @@
           "configurations": {
             "production": {
               "browserTarget": "quiz:build:production"
+            },
+            "es5": {
+              "browserTarget": "quiz:build:es5"
             }
           }
         },
