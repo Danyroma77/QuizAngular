@@ -1,1 +1,18 @@
-<p>info-app works!</p>
+<div class="card">
+    <div class="card-head">
+        <h5>Informazioni sul sito</h5>
+    </div>
+    
+    <div class="card-body">
+
+        <div [innerHTML] ="infoAPP$?.textToDisplay">
+
+        </div>
+        <hr>
+        <div>
+            Vuoi far inserire un concorso di tuo interesse ? <br>
+            Compila il foglio Excel Allegato <a href="assets\template.xlsx" target="_blank">QUI</a> ed invialo
+            via email a: <a href="mailto:noreply2021service@gmail.com">Contatto</a>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InfoAPPComponent } from './info-app/info-app.component';
 import { IsOKV2Component } from './is-okv2/is-okv2.component';
 import { LandingComponent } from './landing/landing.component';
-import { OnlyOKComponent } from './only-ok/only-ok.component';
-import { PdfMakeComponent } from './pdf-make/pdf-make.component';
 import { QuiztestComponent } from './quiztest/quiztest.component';
 
 const routes: Routes = [
@@ -12,6 +11,7 @@ const routes: Routes = [
   {path:'quiz/:idQuiz', component: QuiztestComponent},
   {path:'isOkOnly', component: IsOKV2Component},
   {path:'isOkOnly/:idQuiz', component: IsOKV2Component},
+  {path:'info', component: InfoAPPComponent}
   /*
   {path:'pdf', component:PdfMakeComponent},
   {path:'pdf/:idQuiz', component:PdfMakeComponent}*/
